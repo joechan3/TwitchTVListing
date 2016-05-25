@@ -24,3 +24,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 * [Twitch API](https://github.com/justintv/Twitch-API)
+* [Subtle Patterns](www.subtlepatterns.com)
