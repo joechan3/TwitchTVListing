@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Oxygen:700|Source+Sans+Pro' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-<!--    <link rel="stylesheet" href="css/styles.css">-->
+    <link rel="stylesheet" href="css/styles.css">
     <!-- IE8 Support -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -19,17 +19,40 @@
   </head>
 
   <body class="container">
-    <h1>Twitch TV Listing</h1>
-    <div class="input-group-wrapper" aria-label="Search field">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Filter list">
-        <div class="input-group-btn">
-          <button class="btn btn-default" id="searchButton" type="button" aria-label="Search list" title="Search list"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-        </div><!--.input-group-btn--> 
-      </div><!--.input-group-->
-    </div><!--.input-group-wrapper-->
-    <div class="row" id="searchResults"><!--Populated by js/script.js-->
-    </div>
+    <div class="row">
+      <header role="banner" class="col-xs-6 col-xs-offset-3">
+        <h1>Twitch TV Listing</h1>
+        <div class="input-group-wrapper" aria-label="Search field">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Filter list">
+            <div class="input-group-btn">
+              <button class="btn btn-default" id="searchButton" type="button" aria-label="Search list" title="Search list"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            </div><!--.input-group-btn--> 
+          </div><!--.input-group-->
+        </div><!--.input-group-wrapper-->   
+      </header>
+      <main role="main" class="twitchListings"><!--Populated by mustache.js templating-->
+        <div class="col-xs-6 col-xs-offset-3 listing">
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object" src="images/placeholder.svg" alt="#">
+              </a>
+            </div>
+            <div class="media-body row">
+              <div class="col-xs-10">
+                <h2 class="media-heading">Twitch Channel</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquet est mi, a egestas mi ultrices eu.</p>
+              </div>
+              <div class="col-xs-2">
+                <p>Online</p>
+              </div>
+            </div>
+          </div>
+        </div><!--.listing-->
+      </main><!-- .twitchListings-->
+    </div><!-- .row-->
+  
     <footer role="contentinfo">
       <p>
         Twitch TV Listing coded by <a href="https://github.com/joechan3" target="_blank" title="View Joseph Chan&apos;s GitHub profile">Joseph Chan</a>
