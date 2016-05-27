@@ -41,57 +41,19 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   background-color: #000;
-  display: block;
-  ;
-  
 }
 
 h2 {
   font-family: "Oxygen", sans-serif;
-  font-size: 1.125em;
-}
-
-p{
   font-size: 1em;
 }
 
-.media{
-  margin-top: 0;
-  padding: 15px;
-}
-
-.media:nth-of-type(odd){
-  background-color: #000;
-}
-
-.media:nth-of-type(even){
-  background-color: #26172B;
-}
-
-.media-body p{
-  color: #45B3FC;
-  text-align:center;
-}
-
-.media-body i{
-  font-size: 0.79em;
-}
-
-.media-body div:nth-of-type(2){
-/*  background-color: red;*/
-  display: block;
+p{
+  font-size: 0.889em;
 }
 
 .input-group-wrapper {
-/*  padding-top: 1em;*/
   border-top: 5px #45B3FC solid;
-  max-width: 100%;
-  display: block;
-  margin: 0 auto;
-}
-
-.input-group{
-  height: 40px;
 }
 
 .form-control,
@@ -113,10 +75,59 @@ p{
 .btn[title*="Search"]:hover,
 .btn[title*="Search"]:active,
 .btn[title*="Search"]:focus {
-/*  background-color: white;*/
-/*  color: #000;*/
   outline-color: none;
-/*  transition: 0.5s ease all;*/
+  border-color: #26172B;
+  box-shadow: none;
+}
+
+.media{
+  margin-top: 0;
+  padding: 15px;
+  position: relative;
+}
+
+.media:nth-of-type(odd){
+  background-color: #000;
+}
+
+.media:nth-of-type(even){
+  background-color: #26172B;
+}
+
+.media-left img{
+  width: 3.7em;
+  border-radius: 100%;
+}
+
+.media-body p{
+  color: #45B3FC;
+  text-align:left;
+  margin-bottom: 0;
+}
+
+.media-body i{
+  font-size: 0.702em;
+}
+
+.media-heading {
+  margin-top: 7px;
+}
+
+.media-body div:nth-of-type(1){
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.media-body div:nth-of-type(2){
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 0;
+}
+
+.media-body div:nth-of-type(2) p{
+  text-align: right;
 }
 
 a {
@@ -139,36 +150,3 @@ footer {
   left: 50%;
   text-align: center;
 }
-
-/*
-@media (max-width: 767px) {
-  .input-group-wrapper {
-    max-width: 100%;
-  }
-}*/
-
-/*
-#searchResults {
-  margin-top: 2.369em;
-  min-height: 70vh;
-}
-*/
-
-/*
-.panel,
-.panel-default > .panel-heading {
-  background-color: #00AECC;
-  color: #fff;
-  font-size: 1.333em;
-}
-*/
-
-/*
-.panel-default > .panel-heading {
-  font-size: 1.777em;
-}
-
-.zeroResults {
-  text-align: left;
-}
-*/
