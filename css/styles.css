@@ -3,6 +3,7 @@ Blue - #45B3FC
 Dark blue - #235B84
 Gray - #7B7E7A
 Dark purple - #26172B
+Red - #DA4743
 White
 Black
 */
@@ -130,6 +131,27 @@ p{
 
 .media-body div:nth-of-type(2) p{
   text-align: right;
+}
+
+.media-body .online:after{
+  content : "Online";
+  color: #45B3FC;
+}
+
+.media-body .offline{
+  color: #DA4743;
+}
+
+.media-body .offline:after{
+  content : "Offline";
+}
+
+.media-body .closed{
+  color: #7B7E7A;
+}
+
+.media-body .closed:after{
+  content: "Closed"
 }
 
 a {
