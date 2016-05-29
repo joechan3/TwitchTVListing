@@ -135,7 +135,6 @@ p{
 
 .media-body .online:after{
   content : "Online";
-  color: #45B3FC;
 }
 
 .media-body .offline{
