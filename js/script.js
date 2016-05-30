@@ -1,51 +1,94 @@
-/*global $, console */
+/*global $, console, Mustache */
 
 $(document).ready(function () {
     "use strict";
   
-    function getTwitchJSON() {
-        var channels = ["syndicate", "riotgames", "esl_csgo", "summit1g", "LIRIK", "Nightblue3", "captainsparklez", "PhantomL0rd", "sodapoppin", "FreeCodeCamp"],
+    function getTwitchJSON(callback) {
+        var channels = ["syndicate", "riotgames", "esl_csgo", "summit1g", "LIRIK", "Nightblue3", "captainsparklez", "PhantomL0rd", "FreeCodeCamp", "comster404"],
             channelsCollection = [],
             apiURL = "https://api.twitch.tv/kraken/streams/",
+            countJSONRecieved = 0,
             i;
     
         function ChannelMaker(twitchData, channelName) {
-            //Channel closed or never existed
+            //Status codes: 1 - Online, 2 - Offline, 3 - Closed
+            
+            //Channel is closed or never existed
             if (twitchData.hasOwnProperty("status")) {
                 if (twitchData.status === 422) {
                     this.channelName = channelName;
-                    this.status = "Closed";
+                    this.logoImgSrc = "images/closed.jpg";
+                    this.status = 3;
+                    this["class"] = "closed";
                 }
             //Channel is offline
             } else if (twitchData.stream === null) {
                 this.channelName = channelName;
-                this.status = "Offline";
+                this.logoImgSrc = "images/offline.png";
+                this.channelLink = "https://www.twitch.tv/" + channelName;
+                this.status = 2;
+                this["class"] = "offline";
             //Channel is online
             } else {
                 this.channelName = channelName;
                 this.logoImgSrc = twitchData.stream.channel.logo;
                 //Limit description of stream to 24 characters (styling decision)
                 this.description = (twitchData.stream.channel.game).substring(0, 18) + " . . .";
-                this.channelLink = twitchData.stream.channel.url;
-                this.status = "Online";
+                this.channelLink = "https://www.twitch.tv/" + channelName;
+                this.status = 1;
+                this["class"] = "online";
             }
-
         }
-    
-        function getChannelData(url, channelName) {
-            $.getJSON(url, function (data) {
-                var channelObject = new ChannelMaker(data, channelName);
-                return channelObject;
+        
+        function sortChannelsCollection(collectionToSort) {
+            collectionToSort.sort(function sortChannels(a, b) {
+                return a.status - b.status;
             });
+            
+            return collectionToSort;
         }
-    
+        
+        function getChannelData(url, channelName) {
+            var jqxhr = $.getJSON(url, function (data) {
+                var channelObject = new ChannelMaker(data, channelName);
+                channelsCollection.push(channelObject);
+                countJSONRecieved += 1;
+                //When all channels' JSON data have been received, sort the data and update the HTML
+                if (countJSONRecieved === channels.length) {
+                    channelsCollection = sortChannelsCollection(channelsCollection);
+                    callback(channelsCollection);
+                }
+            })
+                .fail(function (data) {
+                    data.status = 422;
+                    var channelObject = new ChannelMaker(data, channelName);
+                    channelsCollection.push(channelObject);
+                    countJSONRecieved += 1;
+                    //When all channels' JSON data have been received, update the HTML
+                    if (countJSONRecieved === channels.length) {
+                        channelsCollection = sortChannelsCollection(channelsCollection);
+                        callback(channelsCollection);
+                    }
+                });
+        }
+        
         for (i = 0; i < channels.length; i += 1) {
-            channelsCollection.push(getChannelData(apiURL + channels[i], channels[i]));
+            getChannelData(apiURL + channels[i], channels[i]);
         }
     
-        console.log(channelsCollection);
     }
-  
-    getTwitchJSON();
+    
+    function updateHTML(collection) {
+        var templateHTML = $("#listTemplateID").html(),
+            mustacheRenderResult,
+            i;
+        
+        for (i = 0; i < collection.length; i += 1) {
+            mustacheRenderResult = Mustache.render(templateHTML, collection[i]);
+            $(".listing").append(mustacheRenderResult);
+        }
+    }
+    
+    getTwitchJSON(updateHTML);
   
 });

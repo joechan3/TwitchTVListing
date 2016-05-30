@@ -32,40 +32,8 @@
           </div><!--.input-group-->
         </div><!--.input-group-wrapper-->   
       </header>
-      <main role="main" class="twitchListings"><!--Populated by mustache.js templating-->
-        <div class="col-xs-12 listing">
-          <div class="media">
-            <div class="media-left">
-              <a href="#">
-                <img class="media-object" src="images/placeholder2.jpeg" alt="#">
-              </a>
-            </div><!--media-left-->
-            <div class="media-body row">
-              <div class="col-xs-9">
-                <h2 class="media-heading">Twitch Channel</h2>
-                <p>Lorem ipsum dolor sit do</p>
-              </div>
-              <div class="col-xs-3">
-                <p class="online"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;</p>
-              </div>
-            </div><!--.media-body-->
-          </div><!-- .media-->
-          <div class="media">
-            <div class="media-left">
-              <a href="#">
-                <img class="media-object" src="images/placeholder2.jpeg" alt="#">
-              </a>
-            </div><!--media-left-->
-            <div class="media-body row">
-              <div class="col-xs-9">
-                <h2 class="media-heading">Twitch Channel</h2>
-                <p>Lorem ipsum dolor sit do</p>
-              </div>
-              <div class="col-xs-3">
-                <p class="offline"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;</p>
-              </div>
-            </div><!--.media-body-->
-          </div><!-- .media-->
+      <main role="main" class="twitchListings">
+        <div class="col-xs-12 listing"><!--Populated by mustache.js templating-->
         </div><!--.listing-->
       </main><!-- .twitchListings-->
     </div><!-- .row-->
@@ -78,21 +46,30 @@
     
     
     <script type="text/javascript" src="js/mustache.min.js"></script>
-    <!--mustache.js template definition-->
     <script type="text/template" id="listTemplateID">
       <div class="media">
         <div class="media-left">
-          <a href="{{TBD}}">
-            <img class="media-object" src="{{TBD}}" alt="{{TBD}}">
+            {{#channelLink}}
+          <a href="{{channelLink}}" title="Visit {{channelName}}'s twitch page." target="_blank">
+            <img class="media-object" src="{{logoImgSrc}}" alt="{{channelName}}'s twitch page logo.">
           </a>
+            {{/channelLink}}
+            {{^channelLink}}
+          <img class="media-object" src="{{logoImgSrc}}" alt="Twitch page is closed." title="{{channelName}}'s twitch page is closed.">
+            {{/channelLink}}
         </div><!--media-left-->
         <div class="media-body row">
           <div class="col-xs-9">
-            <h2 class="media-heading">{{TBD}}</h2>
-            <p>{{TBD}}</p>
+            <h2 class="media-heading">{{channelName}}</h2>
+              {{#description}}
+            <p>{{description}}</p>
+              {{/description}}
+              {{^description}}
+            <p></p>
+              {{/description}}
           </div>
           <div class="col-xs-3">
-            <p class="{{TBD}}"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Online</p>
+            <p class="{{class}}"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;</p>
           </div>
         </div><!--.media-body-->
       </div><!-- .media-->
