@@ -42,11 +42,13 @@ $(document).ready(function () {
         }
         
         function sortChannelsCollection(collectionToSort) {
-            collectionToSort.sort(function sortChannels(a, b) {
+            //Make function pure
+            var newArr = collectionToSort.slice(0);
+            newArr.sort(function sortChannels(a, b) {
                 return a.status - b.status;
             });
             
-            return collectionToSort;
+            return newArr;
         }
         
         function getChannelData(url, channelName) {
