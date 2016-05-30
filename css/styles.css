@@ -55,45 +55,21 @@ p{
   font-size: 0.889em;
 }
 
-.input-group-wrapper {
-  border-top: 5px #45B3FC solid;
-}
-
-.form-control,
-.btn[title*="Search"] {
-  background-color: #26172B;
-  border-color: #26172B;
-  color: #fff;
-  font-size: 18px;
-  height: 40px;
-}
-
-.btn[title*="Search"]{
-  border-left: none;
-}
-
-.form-control:hover,
-.form-control:active,
-.form-control:focus,
-.btn[title*="Search"]:hover,
-.btn[title*="Search"]:active,
-.btn[title*="Search"]:focus {
-  outline-color: none;
-  border-color: #26172B;
-  box-shadow: none;
-}
-
 .media{
   margin-top: 0;
   padding: 15px;
   position: relative;
 }
 
-.media:nth-of-type(odd){
-  background-color: #000;
+.media:first-of-type{
+    border-top: #45B3FC 5px solid;
 }
 
 .media:nth-of-type(even){
+  background-color: #000;
+}
+
+.media:nth-of-type(odd){
   background-color: #26172B;
 }
 
