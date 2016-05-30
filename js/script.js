@@ -4,7 +4,8 @@ $(document).ready(function () {
     "use strict";
   
     function getTwitchJSON(callback) {
-        var channels = ["syndicate", "riotgames", "esl_csgo", "summit1g", "LIRIK", "Nightblue3", "captainsparklez", "PhantomL0rd", "FreeCodeCamp", "comster404"],
+        var channels = ["StreamerHouse", "Monstercat", "esl_csgo", "summit1g", "BobRoss", "TwinGalaxies",
+                        "Food", "MedryBW", "FreeCodeCamp", "comster404"],
             channelsCollection = [],
             apiURL = "https://api.twitch.tv/kraken/streams/",
             countJSONRecieved = 0,
@@ -33,7 +34,7 @@ $(document).ready(function () {
                 this.channelName = channelName;
                 this.logoImgSrc = twitchData.stream.channel.logo;
                 //Limit description of stream to 24 characters (styling decision)
-                this.description = (twitchData.stream.channel.game).substring(0, 18) + " . . .";
+                this.description = (twitchData.stream.channel.status).substring(0, 18) + " . . .";
                 this.channelLink = "https://www.twitch.tv/" + channelName;
                 this.status = 1;
                 this["class"] = "online";
