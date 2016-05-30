@@ -86,6 +86,9 @@ $(document).ready(function () {
             mustacheRenderResult,
             i;
         
+        //Remove loader
+        $(".fa-circle-o-notch").css("display", "none");
+        
         for (i = 0; i < collection.length; i += 1) {
             mustacheRenderResult = Mustache.render(templateHTML, collection[i]);
             $(".listing").append(mustacheRenderResult);
