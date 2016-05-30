@@ -18,7 +18,7 @@ $(document).ready(function () {
             if (twitchData.hasOwnProperty("status")) {
                 if (twitchData.status === 422) {
                     this.channelName = channelName;
-                    this.logoImgSrc = "images/closed.jpg";
+                    this.logoImgSrc = "images/closed.jpeg";
                     this.status = 3;
                     this["class"] = "closed";
                 }
