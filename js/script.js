@@ -67,7 +67,7 @@ $(document).ready(function () {
                     var channelObject = new ChannelMaker(data, channelName);
                     channelsCollection.push(channelObject);
                     countJSONRecieved += 1;
-                    //When all channels' JSON data have been received, update the HTML
+                    //When all channels' JSON data have been received, sort the data and update the HTML
                     if (countJSONRecieved === channels.length) {
                         channelsCollection = sortChannelsCollection(channelsCollection);
                         callback(channelsCollection);
