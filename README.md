@@ -11,7 +11,7 @@ Twitch.tv Listing allows the user to view a curated list of Twitch.tv channels, 
 * jQuery
 * JavaScript
 * mustache.js
-* Brackets w/ JSHint
+* Brackets w/ JSLint
 
 ## Authors
 
