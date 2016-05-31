@@ -1,4 +1,4 @@
-# Twitch.tv Listing (Under Construction)
+# Twitch.tv Listing
 
 Twitch.tv Listing allows the user to view a curated list of Twitch.tv channels, channel statuses, channel links, and streaming descriptions.
 [https://joechan3.github.io/TwitchTVListing](https://joechan3.github.io/TwitchTVListing)
