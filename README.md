@@ -25,3 +25,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 * [Twitch API](https://github.com/justintv/Twitch-API)
 * [Subtle Patterns](www.subtlepatterns.com)
+* [Social App Concept](http://graphicdesignjunction.com/2014/08/mobile-app-ui-designs-with-uux/)
